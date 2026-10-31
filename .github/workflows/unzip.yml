@@ -1,0 +1,21 @@
+name: unzip
+on:
+  push:
+    paths: ['*.zip']
+  workflow_dispatch:
+concurrency: unzip
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          for z in *.zip; do [ -f "$z" ] && unzip -qo "$z" && rm "$z"; done
+          git config user.name "bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git commit -m "unzip parts" || exit 0
+          git pull --rebase
+          git push
