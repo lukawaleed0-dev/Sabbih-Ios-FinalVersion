@@ -1,5 +1,5 @@
 /* Sabbih PWA service worker — غيّر رقم VERSION عند أي تحديث للتطبيق */
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL = 'sabbih-shell-' + VERSION;
 const PAGES = 'sabbih-quran';   /* صفحات المصحف: كاش ثابت لا يُمسح مع التحديثات */
 const SHELL_FILES = ['./', './index.html', './manifest.webmanifest', './bg.jpg', './adhan.mp3',
